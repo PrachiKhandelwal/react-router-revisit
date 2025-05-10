@@ -5,8 +5,10 @@ const Register = () => {
     const navigate = useNavigate();
     const submitHandler = (e) => {
         e.preventDefault();
-        navigate("/");
+        console.dir(e.target);
+        navigate("/login");
     };
+    
     return (
         <form>
             <label htmlFor="email">Email</label>

@@ -1,5 +1,6 @@
 import {
     createBrowserRouter,
+    Outlet,
     Route,
     RouterProvider,
     Routes,
@@ -14,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/Login";
 import Error from "./pages/Error";
 import Register from "./pages/Register";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
     const router = createBrowserRouter([
@@ -37,11 +39,24 @@ function App() {
                 },
                 {
                     path: "/posts",
-                    element: <Posts />,
+                    element: <RequireAuth><Posts /></RequireAuth>,
                 },
                 {
                     path: "/posts/:postId",
-                    element: <Post />,
+                    element: <RequireAuth><Post /></RequireAuth>,
+                },
+                {
+                    element:<RequireAuth><Outlet/></RequireAuth>,
+                    children:[
+                        {
+                            path:'/dummy',
+                            element:<div>This is a dummy page</div>
+                        },
+                        {
+                            path:"/dummy/:dummyId",
+                            element:<div>This is a random dummy page</div>
+                        }
+                    ]
                 }
             ],
         },
