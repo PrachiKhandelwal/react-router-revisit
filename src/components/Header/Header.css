@@ -1,0 +1,23 @@
+header {
+    height: 50px;
+    background-color:grey;
+    color: white;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+}
+
+.active{
+    font-weight: bold;
+}
