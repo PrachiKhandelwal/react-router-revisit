@@ -8,7 +8,7 @@ const Login = () => {
         if (usernameRef.current?.value && passwordRef.current?.value) {
             localStorage.setItem("uname", usernameRef.current.value);
             localStorage.setItem("pwd", passwordRef.current.value);
-            navigate("/posts");
+            navigate("/posts",{state:{fromLocation:"/login"}});
         }
     };
     const usernameRef = useRef(null);

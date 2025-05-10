@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate,  } from "react-router";
+import { Link, Navigate } from "react-router";
 
 const RequireAuth = ({ children }) => {
     const userName = localStorage.getItem("uname");
@@ -7,7 +7,9 @@ const RequireAuth = ({ children }) => {
     if (userName && password === "pwd") {
         return children;
     }
-    return <Navigate to="/login" replace/>
+    return (
+        <Navigate to="/login" replace state={{ reason: "not authorized" }} />
+    );
     // return (
     //     <>
     //         <div>You are not authorized to access this page</div>
