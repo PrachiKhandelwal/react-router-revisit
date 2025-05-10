@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 import Error from "./pages/Error";
 import Register from "./pages/Register";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import Product from "./pages/Product";
 
 function App() {
     const router = createBrowserRouter([
@@ -44,6 +45,10 @@ function App() {
                 {
                     path: "/posts/:postId",
                     element: <RequireAuth><Post /></RequireAuth>,
+                },
+                {
+                    path:"/product",
+                    element:<Product/>
                 },
                 {
                     element:<RequireAuth><Outlet/></RequireAuth>,
